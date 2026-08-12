@@ -113,36 +113,10 @@ def fmt_time(seconds: float) -> str:
     minutes = (seconds % 3600) // 60
     secs = seconds % 60
 
-        expected = item.category.expected_count
+    if hours > 0:
+        return f"{hours:02d}:{minutes:02d}:{secs:02d}"
 
-        if not files:
-            if err_fn and not (stop_event and stop_event.is_set()):
-                err_fn(f"{item.category.label}:\n{item.name} - в папке нет изображений")
-
-            placeholder_count = expected if expected is not None else 1
-            photos.extend([""] * placeholder_count)
-        else:
-            if expected is not None and len(files) != expected:
-                if err_fn and not (stop_event and stop_event.is_set()):
-                    err_fn(
-                        f"{item.category.label}:\n"
-                        f"{item.name} - найдено {len(files)} фото вместо {expected}"
-                    )
-
-            if expected is not None:
-                if len(files) < expected:
-                    files = files + [""] * (expected - len(files))
-                else:
-                    files = files[:expected]
-
-            photos.extend(files)
-
-            if log_fn:
-                log_fn(f"{item.name} - успешно")
-
-        processed_themes += 1
-        if theme_progress_callback:
-            theme_progress_callback(processed_themes, total_themes)
+    return f"{minutes:02d}:{secs:02d}"
 
 
 def normalize_name(value: str) -> str:
