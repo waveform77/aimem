@@ -9,7 +9,7 @@ from datetime import datetime
 
 from PIL import Image, ImageDraw, ImageFont
 import ttkbootstrap as tb
-from ttkbootstrap.scrolled import ScrolledText
+from ttkbootstrap.widgets.scrolled import ScrolledText
 
 # ---------------- НАСТРОЙКИ ----------------
 

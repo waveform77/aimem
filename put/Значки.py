@@ -11,7 +11,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from PIL import Image, ImageDraw, ImageColor, ImageFont
 import ttkbootstrap as tb
-from ttkbootstrap.scrolled import ScrolledText
+from ttkbootstrap.widgets.scrolled import ScrolledText
 
 
 DPI = 300
